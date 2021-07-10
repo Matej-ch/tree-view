@@ -1,5 +1,5 @@
 <template>
-  <StructureView :data="data" v-on:selected="itemSelected" />
+  <structure-view :data="data" v-on:selected="itemSelected" />
 </template>
 
 <script lang="ts">

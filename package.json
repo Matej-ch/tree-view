@@ -1,5 +1,6 @@
 {
-  "version": "0.0.0",
+  "name": "structured-data-viewer",
+  "version": "0.0.1",
   "description": "Json, csv viewer with structure data",
   "keywords": [
     "vue",
@@ -15,6 +16,14 @@
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview"
   },
+  "main": "dist/index.html",
+  "author": {
+    "name": "Matej ch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Matej-ch/tree-view.git"
+  },
   "dependencies": {
     "vue": "^3.0.5"
   },
@@ -25,5 +34,10 @@
     "typescript": "^4.3.2",
     "vite": "^2.4.0",
     "vue-tsc": "^0.0.24"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }

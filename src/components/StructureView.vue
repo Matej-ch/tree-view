@@ -7,6 +7,9 @@ import { ref, defineComponent } from 'vue'
 export default defineComponent({
     name: 'StructureView',
     props: {
+        data: {
+            required: true
+        },
     },
     setup: () => {
     }
