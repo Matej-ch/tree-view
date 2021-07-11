@@ -1,53 +1,68 @@
 <template>
-  <structure-view :data="data" v-on:selected="itemSelected" />
+    <div :class="{ tree: true }">
+        <structure-view
+            :data="data"
+            rootKey="view"
+            :maxDepth="1"
+            :styles="{ key: '#0977e6' }"
+        />
+    </div>
+
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
+import {computed, defineComponent} from 'vue'
 import StructureView from "./components/StructureView.vue";
 
 export default defineComponent({
-  name: 'App',
-  components: {
-      StructureView
-  },
-    methods: {
-        itemSelected: function () {
-
-        }
+    name: 'App',
+    components: {
+        StructureView
     },
-    computed: {
-      data: function () {
-          return {
-              first: 'level',
-              works: true,
-              number: 100,
-              missing: null,
-              undefined: undefined,
-              list: [
-                  'fun',
-                  {
-                      test: {
-                          passed: true
-                      }
-                  }
-              ],
-              object: {
-                  working: 'properly'
-              }
-          };
-      }
-    }
+
+    setup(props) {
+
+        const data = computed(() => {
+            return {
+                first: 'level',
+                works: true,
+                number: 100,
+                missing: null,
+                undefined: undefined,
+                list: [
+                    'fun',
+                    {
+                        test: {
+                            passed: true
+                        }
+                    }
+                ],
+                object: {
+                    working: 'properly'
+                }
+            };
+        })
+
+        return {
+            data
+        };
+    },
 })
 </script>
 
-<style>
+<style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    padding: 20px;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
 }
+
+.tree {
+    padding: 5px;
+}
+
 </style>
